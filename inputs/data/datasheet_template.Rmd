@@ -1,9 +1,7 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
+title: "Post-pandemic World: COVID-19 Numbers Amid Lessening Restrictions"
 author: 
-  - First author
-  - Another author
+  - Ruty Korotaev
 thanks: "Code and data are available at: LINK."
 date: "`r format(Sys.time(), '%d %B %Y')`"
 abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
