@@ -1,2 +1,2 @@
 # donaldsonpaper
-This report looks at the number of COVID-19 cases in Toronto, beginning from the early cases in January 2020 to January 2023. After three years of the pandemic, much of the city has returned to pre-pandemic norm, with minimal social distancing and mask wearing. However, as the data demonstrates, the latest iterations of the COVID-19 virus remain fatal to many parts of the population.
+Amid a growing housing and affordability crisis in Toronto, this report analyzes the flow of people who are using the city's overnight shelters since January 2018. 
