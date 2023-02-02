@@ -1,7 +1,7 @@
 ---
 title: "Refugees in Toronto Homeless Shelters"
 author: "Ruty Korotaev"
-abstract: Amid a growing affordability and housing crisis in Toronto, this paper analyzes the flow of people who are using the city's overnight shelters between January 2018 and January 2023. The data demonstrates that ____. 
+abstract: Amid a growing affordability and housing crisis in Toronto, this paper analyzes the flow of people who are using the city's overnight shelters between January 2018 and January 2023. The data demonstrates that
 format: pdf
 editor: visual
 ---
@@ -18,7 +18,6 @@ This paper uses data collected from When you click the **Render** button a docum
 
 ```{r}
 1 + 1
-
 
 ```
 
