@@ -29,7 +29,7 @@ The `echo: false` option disables the printing of code (only output is displayed
 
 ## 3 Results
 
-The results of this data set demonstrate that there has been an increase in the amount of refugees in Toronto's shelters, in relation to global events.
+The results of this data set demonstrate that there has been an increase in the amount of refugees in Toronto's shelters.
 
 ## 4 Discussion
 
