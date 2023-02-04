@@ -14,24 +14,34 @@ This paper uses RStudio (R Core Team 2020) to analyze a dataset from opendatator
 
 ## 2 Data
 
-This paper uses data collected from When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+This paper uses data collected from Open Data Toronto. This paper sought to better understand and explain both the demographic information of refugees, as well as the housing situations of those who were using overnight shelters. Figure 1 depicts how
 
 ```{r}
 1 + 1
+library(tidyverse)
+library(knitr)
 
+df <- data.frame(Date = dates, Female=percentage_female, Male = percentage_male, Nonbinary = percentage_nonbinary)
+Demographic_Data1$date <- as.Date(paste("01-", Demographic_Data1$`date(mmm-yy)`, sep = ""), format = "%d-%b-%y")
+Demographic_Data1$year <- format(Demographic_Data1$date, format="%y")
+
+Demographic_Data2 <- cbind(Demographic_Data1, percentage_male, percentage_female, percentage_nonbinary)
+male_means <- aggregate(percentage_male ~ year , Demographic_Data2, mean)
+female_means <- aggregate(percentage_female ~ year , Demographic_Data2, mean)
+nonbinary_means <- aggregate(percentage_nonbinary ~ year , Demographic_Data2, mean)
+cbind(male_means, female_means, nonbinary_means) 
 ```
 
-```{r}
-#| echo: false
-2 * 2
-```
+`{kable(cbind(male_means, female_means, nonbinary_means)) 2 * 2`
 
 The `echo: false` option disables the printing of code (only output is displayed).
 
+In addition, the data demonstrates - refugees by age, refugees housing situation (ie. whether they are actively homeless or rehoused, and how many were new to the system.)
+
 ## 3 Results
 
-The results of this data set demonstrate that there has been an increase in the amount of refugees in Toronto's shelters.
+Much in line with the initial title of the dataset, the information on refugees demonstrates that there has indeed been a flow of
 
 ## 4 Discussion
 
-In further analyzing the data presented by \_\_\_, it is clear that the flow of refugees in Toronto's shelter system is intrinsically linked to global events.
+In further analyzing the data presented by, it is clear that the flow of refugees in Toronto's shelter system is intrinsically linked to global events.
