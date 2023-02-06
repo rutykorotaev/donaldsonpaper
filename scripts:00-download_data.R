@@ -17,3 +17,4 @@ data
 
 #Name dataset
 write_csv(x = data, file = "inputs/rawdata.csv")
+
