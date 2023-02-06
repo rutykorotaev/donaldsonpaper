@@ -9,7 +9,7 @@ format: pdf
 editor: visual
 ---
 
-## 1 Introduction
+## Introduction
 
 Housing affordability, suburban decline, and gentrification have been key issues plaguing Toronto's housing market over the last 20 years. While this persistent problem is impacting Torontonians across the board, some of Toronto's newest inhabitants, refugees, have been particularly hit hard, leading many to seek support from the city's homeless shelters. Canada has a long and complicated history with refugees, however, since 1980, over one million refugees have settled in Canada and in 2021, Canada became the world's leader in bringing in and welcoming new refugees. Indeed, refugee programming has served as a point of pride for many of Canada's leaders, with Prime Minister Justin Trudeau stating: "Whoever. Wherever. Whenever. Everyone has the right to seek safety." However, while this has been an important priority for the Liberal Party, there are nevertheless many cracks within the resettlement system, which can be seen through the amount of refugees who have sought help and support from Toronto's homeless shelters.
 
@@ -17,7 +17,7 @@ To date, the City of Toronto provides over 7,000 emergency and transitional shel
 
 Extant literature about refugees in Toronto has focused largely on health data, including analyses on the mental and physical health of refugees and whether they are seeking support from local services (Dorman et al, 2017; Mule, 2022; Redditt, 2015). Similarly, there has been a great deal of research and scholarly analysis of the housing crisis and gentrification in Toronto, which has led to many people living in overcrowded and poorly maintained accommodations, and others have been altogether priced out of urban housing, being forced to face evictions and homelessness (Wetzstein, 2017). While housing status and an individual's health status can be linked, there is little scholarly information that focuses on how refugees have been seeking support from the shelter system.
 
-## 2 Data
+## Data
 
 This paper uses data collected from Open Data Toronto, with to visualize both the demographic information of refugees, as well as their housing situations. As part of this, the main variables that were used in this project include: year, age, and gender, as well as whether the refugees were actively homeless, new to the system or previously known, and whether they have been housed. As with all datasets, there are numerous ethical and statistical issues that may impose a certain bias on the data. This includes the fact that many refugees, and generally those experiencing homelessness, may not be comfortable with providing their details
 
@@ -26,7 +26,6 @@ This paper uses R (R Core Team 2020) to analyze a dataset from opendatatoronto (
 Figure 1 depicts the overall numbers of refugees in Toronto's shelters between 2018 and 2022, organized by gender (including those who identified as female, male, and nonbinary).
 
 ```{r}
-1 + 1
 library(tidyverse)
 library(knitr)
 library(dplyr)
@@ -34,27 +33,54 @@ library(kableExtra)
 library(tidyverse)
 library(knitr)
 
-#Create annual tallies of refugees per year by gender
-Male_Refugees_by_year <- Year_Demographic %>% group_by(year)%>% tally(sum(gender_male))
-Female_Refugees_by_year <- Year_Demographic %>% group_by(year) %>% tally(sum(gender_female))
-Nonbinary_Refugees_by_year <- Year_Demographic %>% group_by(year) %>% tally(sum(`gender_transgender,non-binary_or_two_spirit`))
-
-#Create Table 1: Chart of total refugees per year by gender 
-Graph1 <- cbind(Male_Refugees_by_year, Female_Refugees_by_year, Nonbinary_Refugees_by_year)
+Demographic_Data <- 
+  read_csv(here::here("outputs/data/Demographic_Status.csv"))
 
 #Graph data
-Graph1|>
-  ggplot(aes(x = year, y = Graph1 )) +
+Demographic_Data |>
+  ggplot(aes(x = date, 
+             y = number, 
+             color = gender)) +
   geom_line() +
-  geom_point() +
-  theme_classic()
-  xlab = "Year" +
-  ylab = "Number of Refugees"
+  theme_classic() +
+  labs(
+    x = "Date",
+    y = "Number of Refugees"
+  )
 ```
 In addition to gender, this report will also look at age as a variable. Figure 2 looks at how five age groups are represented among refugees in Toronto's shelters.
 
 ```{r}
 
+
+Housing_Status <- 
+  read_csv(here::here("outputs/data/Housing_Status.csv"))
+
+Housing_Status %>% 
+  mutate(year = lubridate::year(date)) %>% 
+  group_by(year) %>% 
+  summarize(average_active_homeless = mean(actively_homeless)) %>% 
+  knitr::kable(
+    col.names = c(
+      "Year",
+      "Average active homesless"
+    ),
+    digits = 0
+  )
+```
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
 #Create annual tallies of ages per year 
 AgeUnder16Total <- Year_Demographic %>% group_by(year)%>% tally(sum(ageunder16))
 
@@ -133,7 +159,7 @@ Newly_Identified_Total|>
 ```
 
 
-## 4 Discussion and Analysis
+## Discussion and Analysis
 
 In dissecting and visualizing this dataset, there are numerous insights into the refugee flows within Toronto's shelter system. As it relates to demographic data, it is clear that it is most commonly women refugees who are seeking refuge in the shelter system. Interestingly, as can be seen in Figure 3, many of the refugees, regardless of gender or age, are new to the shelter system and are using it for the first time, which could indicate that many refugees are becoming increasingly vulnerable since resettling in Canada.
 
