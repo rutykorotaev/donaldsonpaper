@@ -1,47 +1,56 @@
 ---
-title: "Refugees in Toronto Homeless Shelters"
+title: "Seeking Refuge in Toronto: An Analysis of Refugee Flows in Toronto's Shelter System"
 author: "Ruty Korotaev"
-abstract: Amid a growing affordability and housing crisis in Toronto, this paper analyzes the flow of people who are using the city's overnight shelters between January 2018 and January 2023. The data demonstrates that
+abstract: "Amid a growing affordability and housing crisis in Toronto and the Greater Toronto Area (GTA), this paper analyzes the population flow within the city's overnight shelters, using data collected between January 2018 and January 2023. More specifically, this report focuses on understanding and visualizing data related to Toronto's refugee populations, and how members of this demographic are making use of the system. Report findings demonstrate that despite numerous federal and provincial government efforts to  integrate refugees into Canadian society, there is a growing number of refugees that are seeking security and support from Toronto's shelter system."
+bibliography: bibliography.bib 
+thanks: "Code can be found at https://github.com/rutykorotaev/donaldsonpaper.git"
 format: pdf
 editor: visual
 ---
 
 ## 1 Introduction
 
-Housing affordability, suburban decline, and gentrification have been key issues plaguing Toronto's housing market over the last 20 years. While this persistent problem is impacting Torontonians across the board, some of Toronto's newest inhabitants -- refugees -- have been particularly hit hard, leading many to seek support from the city's homeless shelters. Canada has a long and complicated history with refugees, ranging from the "one is too many" policy that barred Jewish refugees fleeing Nazi Europe to the ---. However, since 1980, over one million refugees have settled in Canada and in 2021, Canada became the world's leader in bringing in and welcoming new refugees. Indeed, refugee programming has served as a point of pride for many of Canada's leaders, with Prime Minister Justin Trudeau stating: "Whoever. Wherever. Whenever. Everyone has the right to seek safety." However, while this has been an important priority for the Liberal Party, there are nevertheless many cracks within the resettlement system, which can be seen through the amount of refugees who have had to seek help and support from Toronto's homeless shelters.
+Housing affordability, suburban decline, and gentrification have been key issues plaguing Toronto's housing market over the last 20 years. While this persistent problem is impacting Torontonians across the board, some of Toronto's newest inhabitants -- refugees -- have been particularly hit hard, leading many to seek support from the city's homeless shelters. Canada has a long and complicated history with refugees, however, since 1980, over one million refugees have settled in Canada and in 2021, Canada became the world's leader in bringing in and welcoming new refugees. Indeed, refugee programming has served as a point of pride for many of Canada's leaders, with Prime Minister Justin Trudeau stating: "Whoever. Wherever. Whenever. Everyone has the right to seek safety." However, while this has been an important priority for the Liberal Party, there are nevertheless many cracks within the resettlement system, which can be seen through the amount of refugees who have sought help and support from Toronto's homeless shelters.
 
-This paper uses RStudio (R Core Team 2020) to analyze a dataset from opendatatoronto (Gelfand 2020) which shares information on the Shelter System Flow within Toronto. As the City of Toronto operates over --- shelters, which offer overnight services, emergency shelters, warming centres, etc., it uses the Shelter Management Information System (SMIS) to better understand who is making use of these shelters, whether they are actively homeless, if they have been previously known to the shelter operators, as well as demographic information, such as their age, gender, and citizenship status. However, this paper will focus solely on the data surrounding refugees and analyzing this population's usage of shelters.
+To date, the City of Toronto provides over 7,000 emergency and transitional shelters that are funded by community agencies, with the number of beds steadily growing since 2018. These shelters use the Shelter Management Information System (SMIS) to track population flows and better understand who is making use of these shelters. This system tracks demographic information, such as age, gender, citizenship status, as well as housing data, which detail whether they are actively homeless, have returned from housing or from another shelter, if they are new to the shelter system or returning to it, having previously used the shelter system. While there are countless findings that could be made from this data, this paper will focus solely on the data surrounding refugees and analyzing this population's usage of shelters.
 
 ## 2 Data
 
-This paper uses data collected from Open Data Toronto. This paper sought to better understand and explain both the demographic information of refugees, as well as the housing situations of those who were using overnight shelters. Figure 1 depicts how
+This paper uses data collected from Open Data Toronto, with to visualize both the demographic information of refugees, as well as their housing situations. As part of this, the main variables that were used in this project include: year, age, and gender, as well as whether the refugees were actively homeless, new to the system or previously known, and whether they have been housed.  Figure 1 demonstrates how Figure 1 is a preview of the raw data that was imported through the 'opendatatoronto' library, having extracted the data related just to refugees using homeless shelters.
+
+This paper uses R (R Core Team 2020) to analyze a dataset from opendatatoronto (Gelfand 2020) which shares data on the population flow within Toronto's shelter system. In addition, several R packages were included in the project, including “tidyverse” (Wickham et al. 2019), “dplyr” (Wickham et al. 2021), “kableExtra” (Zhu 2021) and “knitr” (Xie 2021). 
 
 ```{r}
 1 + 1
 library(tidyverse)
 library(knitr)
+library(dplyr)
+library(kableExtra)
 
-df <- data.frame(Date = dates, Female=percentage_female, Male = percentage_male, Nonbinary = percentage_nonbinary)
-Demographic_Data1$date <- as.Date(paste("01-", Demographic_Data1$`date(mmm-yy)`, sep = ""), format = "%d-%b-%y")
-Demographic_Data1$year <- format(Demographic_Data1$date, format="%y")
 
-Demographic_Data2 <- cbind(Demographic_Data1, percentage_male, percentage_female, percentage_nonbinary)
-male_means <- aggregate(percentage_male ~ year , Demographic_Data2, mean)
-female_means <- aggregate(percentage_female ~ year , Demographic_Data2, mean)
-nonbinary_means <- aggregate(percentage_nonbinary ~ year , Demographic_Data2, mean)
-cbind(male_means, female_means, nonbinary_means) 
 ```
 
 `{kable(cbind(male_means, female_means, nonbinary_means)) 2 * 2`
-
-The `echo: false` option disables the printing of code (only output is displayed).
+```
 
 In addition, the data demonstrates - refugees by age, refugees housing situation (ie. whether they are actively homeless or rehoused, and how many were new to the system.)
 
+```{r}
+
+
+
+```
+
 ## 3 Results
 
-Much in line with the initial title of the dataset, the information on refugees demonstrates that there has indeed been a flow of
+In dissecting and visualizing this dataset, there are numerous insights about the world of 
 
 ## 4 Discussion
 
 In further analyzing the data presented by, it is clear that the flow of refugees in Toronto's shelter system is intrinsically linked to global events.
+
+## References 
+
+
+
+
