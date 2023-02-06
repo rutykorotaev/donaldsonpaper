@@ -41,13 +41,13 @@ In addition, the data demonstrates - refugees by age, refugees housing situation
 
 ```
 
-## 3 Results
-
-In dissecting and visualizing this dataset, there are numerous insights about the world of 
-
 ## 4 Discussion
 
-In further analyzing the data presented by, it is clear that the flow of refugees in Toronto's shelter system is intrinsically linked to global events.
+In dissecting and visualizing this dataset, there are numerous insights into the refugee flows within Toronto's shelter system. As it relates to demographic data, it is clear that it is most commonly women refugees who are seeking refuge in the shelter system. Interestingly, as can be seen in Figure 3, many of the refugees, regardless of gender or age, are new to the shelter system and are using it for the first time, which could indicate that many refugees are becoming increasingly vulnerable since resettling in Canada. 
+
+Moreover, when it comes to housing information, there are many findings that can be extracted from the data. Most notably, it appears that a large percentage of refugees in the shelter system are actively homeless, seemingly indicating that government resettlement efforts - which generally guarantee a place to call home - are lacking, and allowing vulnerable people to fall through the cracks. 
+
+Further, while there is no data that indicates the backgrounds and countries of origin for the refugees in shelters, there is a possibility for future literature to delve into how global events and societal upheavals abroad are translating into shifts in demographics throuhgout Toronto's shelter system. For instance, as a more recent example, Russia's escalated invasion of Ukraine has left over 8 million Ukrainians displaced, including many others fleeing the region. As can be seen in Figure 5, there has been a steady growth in refugees in Toronto's shelters since February and March 2022, at the height of the humanitarian crisis in Ukraine when hundreds of thousands of people were fleeing the country. While there is a need to further analyze and gain more demographic information about refugees in Toronto's shelter, it is nevertheless helpful to consider this system within the broader context of world events and its intrinsic linkages with humanitarian efforts throughout the world. 
 
 ## References 
 
