@@ -7,3 +7,5 @@ tibble(
   month = 1:12, 
   number_homeless_refugees = runif(n = 12, min = 100, max = 1000)
 )
+df <- data.frame(Months = 1:12, Refugees = number_homeless_refugees)
+
