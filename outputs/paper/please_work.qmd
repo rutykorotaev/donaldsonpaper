@@ -56,7 +56,7 @@ In addition to gender, this report will also look at age as a variable. @tbl-doc
 #| echo: false
 #| message: false
 #| label: tbl-docvisittable
-#| tbl-cap: "Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey"
+#| tbl-cap: "Number of refugees in Toronto's homeless shelters"
 
 
 Housing_Status <- 
@@ -69,7 +69,7 @@ Housing_Status %>%
   knitr::kable(
     col.names = c(
       "Year",
-      "Average active homesless"
+      "Average active homeless"
     ),
     digits = 0
   )

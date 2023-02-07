@@ -26,8 +26,6 @@ This paper uses R (R Core Team 2020) to analyze a dataset from opendatatoronto (
 Figure 1 depicts the overall numbers of refugees in Toronto's shelters between 2018 and 2022, organized by gender (including those who identified as female, male, and nonbinary).
 
 ```{r}
-library(tidyverse)
-library(knitr)
 library(dplyr)
 library(kableExtra)
 library(tidyverse)
@@ -48,6 +46,7 @@ Demographic_Data |>
     y = "Number of Refugees"
   )
 ```
+
 In addition to gender, this report will also look at age as a variable. Figure 2 looks at how five age groups are represented among refugees in Toronto's shelters.
 
 ```{r}
@@ -63,22 +62,11 @@ Housing_Status %>%
   knitr::kable(
     col.names = c(
       "Year",
-      "Average active homesless"
+      "Average Active Homeless"
     ),
     digits = 0
   )
 ```
-
-
-
-
-
-
-
-
-
-
-
 
 ```{r}
 #Create annual tallies of ages per year 
@@ -104,7 +92,7 @@ Graph2 |>
 
 ```
 
-In addition to the demographic data, this paper also looked the housing status information about the refugees who were staying at homeless shelters. Table 3 looks at how many refugees were actively homeless at the time when they were using shelters. 
+In addition to the demographic data, this paper also looked the housing status information about the refugees who were staying at homeless shelters. Table 3 looks at how many refugees were actively homeless at the time when they were using shelters.
 
 ```{r}
 #Create annual tallies of the amount of actively homeless refugees between 2018 and 2022
@@ -130,7 +118,7 @@ Actively_Homeless_Total |>
 
 ```
 
-Finally, another variable of note in the original dataset was whether those using homeless shelters were new to the system or had been previously known to authorities running these shelters. This data, especially when considered alongside the data presented in Table 3, demonstrates that there is a growing number of refugees who are not only actively homeless, but also are using the shelter system for the first time. 
+Finally, another variable of note in the original dataset was whether those using homeless shelters were new to the system or had been previously known to authorities running these shelters. This data, especially when considered alongside the data presented in Table 3, demonstrates that there is a growing number of refugees who are not only actively homeless, but also are using the shelter system for the first time.
 
 ```{r}
 #Create annual tallies of the amount of refugees who are new to the shelter system between 2018 and 2022
@@ -157,7 +145,6 @@ Newly_Identified_Total|>
   ylab(y = "Year")
 
 ```
-
 
 ## Discussion and Analysis
 
