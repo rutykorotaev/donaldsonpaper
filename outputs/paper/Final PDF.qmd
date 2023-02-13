@@ -69,82 +69,13 @@ Housing_Status %>%
 ```
 
 ```{r}
-#Create annual tallies of ages per year 
-AgeUnder16Total <- Year_Demographic %>% group_by(year)%>% tally(sum(ageunder16))
-
-Age16to24Total <- Year_Demographic %>% group_by(year)%>% tally(sum(`age16-24`))
-
-Age25to44Total <- Year_Demographic %>% group_by(year)%>% tally(sum(`age25-44`))
-
-Age45to64Total <- Year_Demographic %>% group_by(year)%>% tally(sum(`age45-64`))
-
-Age65OverTotal <- Year_Demographic %>% group_by(year)%>% tally(sum(`age65over`))
-
-#Create dataset with these variables
-Graph2 <- cbind(year,AgeUnder16Total, Age16to24Total, Age25to44Total, Age45to64Total, Age65OverTotal)
-
-#Graph data
-Graph2 |>
-  as_tibble() |>
-  ggplot(mapping = aes(x = Graph2, y = Years)) +
-  geom_bar() +
-  theme_classic()
 
 ```
 
 In addition to the demographic data, this paper also looked the housing status information about the refugees who were staying at homeless shelters. Table 3 looks at how many refugees were actively homeless at the time when they were using shelters.
 
-```{r}
-#Create annual tallies of the amount of actively homeless refugees between 2018 and 2022
-Actively_Homeless2018 <- sum(Year_Housing[which(Year_Housing$year == "2018"),4])
-
-Actively_Homeless2019 <- sum(Year_Demographic[which(Year_Demographic$year == "2019"),4])
-
-Actively_Homeless2020 <- sum(Year_Demographic[which(Year_Demographic$year == "2020"),4])
-
-Actively_Homeless2021 <- sum(Year_Demographic[which(Year_Demographic$year == "2021"),4])
-
-Actively_Homeless2022 <- sum(Year_Demographic[which(Year_Demographic$year == "2022"),4])
-
-Actively_Homeless_Total <- cbind(Actively_Homeless2018, Actively_Homeless2019, Actively_Homeless2020, Actively_Homeless2021, Actively_Homeless2022)
-
-#Create dataset and graph data
-Actively_Homeless_Total |>
-  ggplot(mapping = aes(x = Actively_Homeless_Total, y = year)) +
-  geom_line() +
-  geom_point() +
-  xlab(x = "Actively Homeless Per Year") +
-  ylab(y = "Year")
-
-```
 
 Finally, another variable of note in the original dataset was whether those using homeless shelters were new to the system or had been previously known to authorities running these shelters. This data, especially when considered alongside the data presented in Table 3, demonstrates that there is a growing number of refugees who are not only actively homeless, but also are using the shelter system for the first time.
-
-```{r}
-#Create annual tallies of the amount of refugees who are new to the shelter system between 2018 and 2022
-
-Newly_Identified2018 <- sum(Year_Housing[which(Year_Housing$year == "2018"),5])
-
-Newly_Identified2019 <- sum(Year_Housing[which(Year_Housing$year == "2019"),5])
-
-Newly_Identified2020 <- sum(Year_Housing[which(Year_Housing$year == "2020"),5])
-
-Newly_Identified2021 <- sum(Year_Housing[which(Year_Housing$year == "2021"),5])
-
-Newly_Identified2022 <- sum(Year_Housing[which(Year_Housing$year == "2022"),5])
-
-#Combine all data
-Newly_Identified_Total <- cbind(Newly_Identified2018, Newly_Identified2019, Newly_Identified2020, Newly_Identified2021, Newly_Identified2022)
-
-#Create dataset and graph data
-Newly_Identified_Total|>
-  ggplot(mapping = aes(x = Newly_Identified_Total, y = year)) +
-  geom_line() +
-  geom_point() +
-  xlab(x = "Newly Identified Refugees Per Year") +
-  ylab(y = "Year")
-
-```
 
 ## Discussion and Analysis
 
@@ -155,3 +86,4 @@ Moreover, when it comes to housing information, there are many findings that can
 Further, while there is no data that indicates the backgrounds and countries of origin for the refugees in shelters, there is a possibility for future literature to delve into how global events and societal upheavals abroad are translating into shifts in demographics throuhgout Toronto's shelter system. For instance, as a more recent example, Russia's escalated invasion of Ukraine has left over 8 million Ukrainians displaced, including many others fleeing the region. As can be seen in Figure 5, there has been a steady growth in refugees in Toronto's shelters since February and March 2022, at the height of the humanitarian crisis in Ukraine when hundreds of thousands of people were fleeing the country. While there is a need to further analyze and gain more demographic information about refugees in Toronto's shelter, it is nevertheless helpful to consider this system within the broader context of world events and its intrinsic linkages with humanitarian efforts throughout the world.
 
 ## References
+

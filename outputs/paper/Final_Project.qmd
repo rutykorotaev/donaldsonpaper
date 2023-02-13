@@ -10,7 +10,7 @@ format: pdf
 
 ## Introduction
 
-Housing affordability, suburban decline, and gentrification have been key issues plaguing Toronto's housing market over the last 20 years. While this persistent problem is impacting Torontonians across the board, some of Toronto's newest inhabitants, refugees, have been particularly hit hard, leading many to seek support from the city's homeless shelters. Canada has a long and complicated history with refugees, however, since 1980, over one million refugees have settled in Canada and in 2021, Canada became the world's leader in bringing in and welcoming new refugees. Indeed, refugee programming has served as a point of pride for many of Canada's leaders, with Prime Minister Justin Trudeau stating: "Whoever. Wherever. Whenever. Everyone has the right to seek safety." However, while this has been an important priority for the Liberal Party, there are nevertheless many cracks within the resettlement system, which can be seen through the amount of refugees who have sought help and support from Toronto's homeless shelters.
+Housing affordability, suburban decline, and gentrification have plagued Toronto's housing market over the last 20 years. While this persistent problem is impacting Torontonians across the board, some of Toronto's newest inhabitants, refugees, have been particularly hit hard, leading many to seek support from the city's homeless shelters. Canada has a long and complicated history with refugees, however, since 1980, over one million refugees have settled in Canada and in 2021, Canada became the world's leader in bringing in and welcoming new refugees. Indeed, refugee programming has served as a point of pride for many of Canada's leaders, with Prime Minister Justin Trudeau stating: "Whoever. Wherever. Whenever. Everyone has the right to seek safety." However, while this has been an important priority for the Liberal Party, there are nevertheless many cracks within the resettlement system, which can be seen through the amount of refugees who have sought help and support from Toronto's homeless shelters.
 
 To date, the City of Toronto provides over 7,000 emergency and transitional shelters that are funded by community agencies, with the number of beds steadily growing since 2018. These shelters use the Shelter Management Information System (SMIS) to track population flows and better understand who is making use of these shelters. This system tracks demographic information, such as age, gender, citizenship status, as well as housing data, which detail whether they are actively homeless, have returned from housing or from another shelter, if they are new to the shelter system or returning to it, having previously used the shelter system. While there are countless findings that could be made from this data, this paper will focus solely on the data surrounding refugees and analyzing this population's usage of shelters.
 
@@ -28,8 +28,7 @@ This paper uses R [@citeR] to analyze a dataset from opendatatoronto [@opendatat
 #| echo: false
 #| message: false
 #| label: fig-uniquename
-#| fig-cap: Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey
-
+#| fig-cap: "Number of Refugees in Toronto's Homeless Shelters by Gender"
 
 library(tidyverse)
 library(knitr)
@@ -50,13 +49,13 @@ Demographic_Data |>
   )
 ```
 
-In addition to gender, this report will also look at age as a variable. @tbl-docvisittable looks at how five age groups are represented among refugees in Toronto's shelters.
+In addition to gender, this report looks at the housing status of refugees. Figure 2 depicts the number of refugees that were reported as being actively homeless between the years 2018 and 2022. @tbl-docvisittable
 
 ```{r}
 #| echo: false
 #| message: false
 #| label: tbl-docvisittable
-#| tbl-cap: "Number of refugees in Toronto's homeless shelters"
+#| tbl-cap: "Number of Actively Homeless Refugees Identified in Toronto"
 
 
 Housing_Status <- 
@@ -69,24 +68,28 @@ Housing_Status %>%
   knitr::kable(
     col.names = c(
       "Year",
-      "Average active homeless"
+      "Actively Homeless"
     ),
     digits = 0
   )
 ```
 
-
-
-In addition to the demographic data, this paper also looked the housing status information about the refugees who were staying at homeless shelters. Table 3 looks at how many refugees were actively homeless at the time when they were using shelters. 
-
-Finally, another variable of note in the original dataset was whether those using homeless shelters were new to the system or had been previously known to authorities running these shelters. This data, especially when considered alongside the data presented in Table 3, demonstrates that there is a growing number of refugees who are not only actively homeless, but also are using the shelter system for the first time. 
+Finally, another variable of note in the original dataset was whether those using homeless shelters were new to the system or had been previously known to authorities running these shelters. This data, especially when considered alongside the data presented in Table 3, demonstrates that there is a growing number of refugees who are not only actively homeless, but also are using the shelter system for the first time.
 
 ## Discussion and Analysis
 
-In dissecting and visualizing this dataset, there are numerous insights into the refugee flows within Toronto's shelter system. As it relates to demographic data, it is clear that it is most commonly women refugees who are seeking refuge in the shelter system. Interestingly, as can be seen in Figure 3, many of the refugees, regardless of gender or age, are new to the shelter system and are using it for the first time, which could indicate that many refugees are becoming increasingly vulnerable since resettling in Canada.
+By visualizing this dataset, there are numerous insights into the refugee flows within Toronto's shelter system. As it relates to demographic data, the number of male and female refugees in shelters does not vary greatly. The graph demonstrates that when there is both a decrease or increase of refugees in shelters, the numbers are reflected among both the female and male records. The number of non-binary refugees has remained consistent and relatively low. Interestingly, as can be seen in Figure 3, many of the refugees, regardless of gender or age, are new to the shelter system and are using it for the first time, which could indicate that many refugees are becoming increasingly vulnerable since resettling in Canada.
 
-Moreover, when it comes to housing information, there are many findings that can be extracted from the data. Most notably, it appears that a large percentage of refugees in the shelter system are actively homeless, seemingly indicating that government resettlement efforts - which generally guarantee a place to call home - are lacking, and allowing vulnerable people to fall through the cracks.
+Moreover, when it comes to housing information, there are several findings that can be extracted from the data. Most notably, it appears that a large percentage of refugees in the shelter system are actively homeless, seemingly indicating that government resettlement efforts - which generally guarantee a place to call home - are lacking, and allowing vulnerable people to fall through the cracks.
 
-Further, while there is no data that indicates the backgrounds and countries of origin for the refugees in shelters, there is a possibility for future literature to delve into how global events and societal upheavals abroad are translating into shifts in demographics throuhgout Toronto's shelter system. For instance, as a more recent example, Russia's escalated invasion of Ukraine has left over 8 million Ukrainians displaced, including many others fleeing the region. As can be seen in Figure 5, there has been a steady growth in refugees in Toronto's shelters since February and March 2022, at the height of the humanitarian crisis in Ukraine when hundreds of thousands of people were fleeing the country. While there is a need to further analyze and gain more demographic information about refugees in Toronto's shelter, it is nevertheless helpful to consider this system within the broader context of world events and its intrinsic linkages with humanitarian efforts throughout the world.
+Next, Figure 2 depicts the total amount of refugees in Toronto's shelters who were discovered to be actively homeless between 2018 and 2022. The number demonstrates that there has been a dip in the amount of refugees who are actively homeless that are recorded in shelters, however, especially when considered alongside data from Figure 1, the COVID-19 pandemic could potentially explain why there has been a dip in the number. As has been widely reported in other sources (INCLUDE SOURCE), vulnerability and homelessness was only exacerbated during the pandemic, as many people lost their jobs, suffered from mental and physical health issues, and struggled with continued restrictions and fear of disease.
+
+Further, while there is no data that indicates the backgrounds and countries of origin for the refugees in shelters, there is a possibility for future literature to delve into how global events and societal upheavals abroad are translating into shifts in demographics throughout Toronto's shelter system. For instance, as a more recent example, Russia's escalated invasion of Ukraine has left over 8 million Ukrainians displaced, including many others fleeing the region. As can be seen in Figure 5, there has been a steady growth in refugees in Toronto's shelters since February and March 2022, at the height of the humanitarian crisis in Ukraine when hundreds of thousands of people were fleeing the country. While there is a need to further analyze and gain more demographic information about refugees in Toronto's shelter, it is nevertheless helpful to consider this system within the broader context of world events and its intrinsic linkages with humanitarian efforts throughout the world.
 
 ## References
+
+@Manual{citeR, title = {R: A Language and Environment for Statistical Computing}, author = {{R Core Team}}, organization = {R Foundation for Statistical Computing}, address = {Vienna, Austria}, year = {2020}, url = {https://www.R-project.org/}, }
+
+@Article{thereferencecanbewhatever, title = {Welcome to the {tidyverse}}, author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani}, year = {2019}, journal = {Journal of Open Source Software}, volume = {4}, number = {43}, pages = {1686}, doi = {10.21105/joss.01686}, }
+
+@Manual{opendatatoronto, title = {opendatatoronto: Access the City of Toronto Open Data Portal}, author = {Sharla Gelfand}, year = {2022}, note = {R package version 0.1.5}, url = {https://CRAN.R-project.org/package=opendatatoronto}, }
