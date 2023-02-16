@@ -52,11 +52,10 @@ Demographic_Data |>
 Further, this report also looked at the ages of refugees in Toronto's shelter.
 
 ```{r}
-
 #| echo: false
 #| message: false
 #| label: fig-uniquename
-#| fig-cap: "Number of Refugees in Toronto's Homeless Shelters by Gender"
+#| fig-cap: "Number of Refugees in Toronto's Homeless Shelters by Age"
 
 library(tidyverse)
 library(knitr)
