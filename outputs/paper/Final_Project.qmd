@@ -49,19 +49,50 @@ Demographic_Data |>
   )
 ```
 
-In addition to gender, this report looks at the housing status of refugees. Figure 2 depicts the number of refugees that were reported as being actively homeless between the years 2018 and 2022. @tbl-docvisittable
+Further, this report also looked at the ages of refugees in Toronto's shelter.
+
+```{r}
+
+#| echo: false
+#| message: false
+#| label: fig-uniquename
+#| fig-cap: "Number of Refugees in Toronto's Homeless Shelters by Gender"
+
+library(tidyverse)
+library(knitr)
+
+Demographic_Data2 <- 
+  read_csv(here::here("outputs/data/Demographic_Status.csv"))
+
+#Graph data
+Age_Data |>
+  ggplot(aes(x = date, 
+             y = number, 
+             color = ages)) +
+  geom_line() +
+  geom_point()+
+  theme_classic() +
+  labs(
+    x = "Date",
+    y = "Ages of Refugees"
+  )
+
+
+```
+
+In addition to demographic data, this report looks at the housing status of refugees. Figure 2 depicts the number of refugees that were reported as being actively homeless between the years 2018 and 2022. @tbl-docvisittable
 
 ```{r}
 #| echo: false
 #| message: false
 #| label: tbl-docvisittable
-#| tbl-cap: "Number of Actively Homeless Refugees Identified in Toronto"
+#| tbl-cap: "Actively Homeless Refugees Identified in Toronto"
 
 
 Housing_Status <- 
   read_csv(here::here("outputs/data/Housing_Status.csv"))
 
-Housing_Status %>% 
+Year_Housing %>% 
   mutate(year = lubridate::year(date)) %>% 
   group_by(year) %>% 
   summarize(average_active_homeless = mean(actively_homeless)) %>% 
@@ -75,6 +106,30 @@ Housing_Status %>%
 ```
 
 Finally, another variable of note in the original dataset was whether those using homeless shelters were new to the system or had been previously known to authorities running these shelters. This data, especially when considered alongside the data presented in Table 3, demonstrates that there is a growing number of refugees who are not only actively homeless, but also are using the shelter system for the first time.
+
+```{r}
+
+#| echo: false
+#| message: false
+#| label: tbl-docvisittable
+#| tbl-cap: "Newly Identified Refugees in Toronto"
+
+Housing_Status <- 
+  read_csv(here::here("outputs/data/Housing_Status.csv"))
+
+
+library(ggplot2)
+
+Year_Housing %>% 
+  mutate(year = lubridate::year(date)) %>% 
+  group_by(year) %>% 
+  summarize(average_newly_identified = mean(newly_identified)) %>% 
+  ggplot(aes(x = year, y = average_newly_identified, fill = year)) +
+  geom_col() +
+  labs(x = "Year", y = "Newly Identified") +
+  theme_classic() 
+
+```
 
 ## Discussion and Analysis
 
