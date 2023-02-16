@@ -22,12 +22,12 @@ This paper uses data collected from Open Data Toronto, with to visualize both th
 
 This paper uses R [@citeR] to analyze a dataset from opendatatoronto [@opendatatoronto] which shares data on the population flow within Toronto's shelter system. In addition, several R packages were included in the project, including "tidyverse" (Wickham et al. 2019), "dplyr" (Wickham et al. 2021), "kableExtra" (Zhu 2021) and "knitr" (Xie 2021).
 
-@fig-uniquename depicts the overall numbers of refugees in Toronto's shelters between 2018 and 2022, organized by gender (including those who identified as female, male, and nonbinary).
+@fig-1 depicts the overall numbers of refugees in Toronto's shelters between 2018 and 2022, organized by gender (including those who identified as female, male, and nonbinary).
 
 ```{r}
 #| echo: false
 #| message: false
-#| label: fig-uniquename
+#| label: fig-gender
 #| fig-cap: "Number of Refugees in Toronto's Homeless Shelters by Gender"
 
 library(tidyverse)
@@ -54,14 +54,14 @@ Further, this report also looked at the ages of refugees in Toronto's shelter.
 ```{r}
 #| echo: false
 #| message: false
-#| label: fig-uniquename
+#| label: fig-ages
 #| fig-cap: "Number of Refugees in Toronto's Homeless Shelters by Age"
 
 library(tidyverse)
 library(knitr)
 
-Demographic_Data2 <- 
-  read_csv(here::here("outputs/data/Demographic_Status.csv"))
+Age_Data <- 
+  read_csv(here::here("outputs/data/Age_Data.csv"))
 
 #Graph data
 Age_Data |>
@@ -76,7 +76,6 @@ Age_Data |>
     y = "Ages of Refugees"
   )
 
-
 ```
 
 In addition to demographic data, this report looks at the housing status of refugees. Figure 2 depicts the number of refugees that were reported as being actively homeless between the years 2018 and 2022. @tbl-docvisittable
@@ -84,12 +83,11 @@ In addition to demographic data, this report looks at the housing status of refu
 ```{r}
 #| echo: false
 #| message: false
-#| label: tbl-docvisittable
+#| label: tbl-activehomeless
 #| tbl-cap: "Actively Homeless Refugees Identified in Toronto"
 
-
-Housing_Status <- 
-  read_csv(here::here("outputs/data/Housing_Status.csv"))
+Year_Housing <-
+  read_csv(here::here("outputs/data/Year_Housing.csv"))
 
 Year_Housing %>% 
   mutate(year = lubridate::year(date)) %>% 
@@ -107,11 +105,10 @@ Year_Housing %>%
 Finally, another variable of note in the original dataset was whether those using homeless shelters were new to the system or had been previously known to authorities running these shelters. This data, especially when considered alongside the data presented in Table 3, demonstrates that there is a growing number of refugees who are not only actively homeless, but also are using the shelter system for the first time.
 
 ```{r}
-
 #| echo: false
 #| message: false
-#| label: tbl-docvisittable
-#| tbl-cap: "Newly Identified Refugees in Toronto"
+#| label: tbl-newlyidentified
+#| fig-cap: "Newly Identified Refugees in Toronto"
 
 Housing_Status <- 
   read_csv(here::here("outputs/data/Housing_Status.csv"))
