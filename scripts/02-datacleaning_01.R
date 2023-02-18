@@ -17,8 +17,6 @@ Housing_Status <-
   filter(population_group == "Refugees") %>% 
   select(date, actively_homeless, newly_identified)
 
-write_csv(Housing_Status, "outputs/data/Housing_Status.csv")
-
 #Filter data by gender of refugees
 Demographic_Data <-
   data1 |>
@@ -36,6 +34,7 @@ Demographic_Data <-
 write_csv(Demographic_Data, "outputs/data/Demographic_Status.csv")
 
 #Filter data by age of refugees
+write_csv(Age_Data,"outputs/data/Age_Data.csv")
 Age_Data <-
   data1 |>
   filter(population_group == "Refugees") %>%
@@ -52,6 +51,11 @@ Age_Data <-
                     
   ))
 
-write_csv(Demographic_Data, "outputs/data/Demographic_Status.csv")
+#Add year column to Demographic Data
+year <- rep(c(2018,2019,2020,2021,2022),each = 12)
+Year_Demographic <- cbind(year, Demographic_Data)
 
-
+#Add year column to Housing Status Data
+year1 <- rep(c(2018, 2019, 2020, 2021, 2022), each = 12)
+Year_Housing <- cbind(year, Housing_Status)
+write_csv(Year_Housing, "outputs/data/Year_Housing.csv")
